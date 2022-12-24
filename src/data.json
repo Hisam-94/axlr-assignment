@@ -1,0 +1,32 @@
+{
+    "data" : [
+    {
+        "id":1,
+        "Heading":"Deal of the day",
+        "image1":"https://m.media-amazon.com/images/I/81Sf4G8NVlL._AC_UL480_QL65_.jpg",
+        "image2":"https://m.media-amazon.com/images/I/81t6x4CRv5L._AC_UL480_QL65_.jpg",
+        "image3":"https://m.media-amazon.com/images/I/71fDjhV8aiL._AC_UL480_QL65_.jpg"
+    },
+    {
+        "id":2,
+        "Heading":"Top sellers",
+        "image1":"https://m.media-amazon.com/images/I/715H4Gmux7S._AC_UL480_FMwebp_QL65_.jpg",
+        "image2":"https://m.media-amazon.com/images/I/61DuXqC9+YS._AC_UL480_FMwebp_QL65_.jpg",
+        "image3":"https://m.media-amazon.com/images/I/71BqV3R0R2L._AC_UL480_FMwebp_QL65_.jpg"
+    },
+    {
+        "id":3,
+        "Heading":"New arrivals",
+        "image1":"https://m.media-amazon.com/images/I/81rgPpu+bPL._AC_UL480_QL65_.jpg",
+        "image2":"https://m.media-amazon.com/images/I/71YWo0SMk5L._AC_UL480_QL65_.jpg",
+        "image3":"https://m.media-amazon.com/images/I/71YE5hLmhML._AC_UL480_QL65_.jpg"
+    },
+    {
+        "id":4,
+        "Heading":"Trending now",
+        "image1":"https://m.media-amazon.com/images/I/617SyqzlSKL._AC_UL480_QL65_.jpg",
+        "image2":"https://m.media-amazon.com/images/I/511HG7M2enL._AC_UL480_QL65_.jpg",
+        "image3":"https://m.media-amazon.com/images/I/61hNt1KkDUL._AC_UL480_QL65_.jpg"
+    }
+] 
+}
