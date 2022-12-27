@@ -6,7 +6,6 @@ import { Box, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
 import Nav from "./Nav";
 
-
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1);
@@ -137,8 +136,6 @@ const ButtonText = styled.div`
   margin: 0 1rem;
 `;
 
-// const grid = 8;
-
 const ITEMS = [
   {
     id: uuid(),
@@ -194,21 +191,6 @@ const Home = (props) => {
   const [image2, setImage2] = useState("");
   const [image3, setImage3] = useState("");
 
-  const handleSave = () => {
-    ITEMS.filter((el) =>
-      el.id == right.id
-        ? el.map(
-            (item) => (
-              (item.content = text),
-              (item.image1 = image1),
-              (item.image2 = image2),
-              (item.image3 = image3)
-            )
-          )
-        : ""
-    );
-  };
-
   const onDragEnd = (result) => {
     const { source, destination } = result;
 
@@ -251,9 +233,34 @@ const Home = (props) => {
         }));
         break;
     }
+    setBtnShow(false);
+    // console.log(ITEMS[source.index])
   };
 
-  const addList = () => {};
+  const handleRemove = (id) => {
+    let newData = Object.keys(state).map((el) =>
+      state[el].filter((a) => a.id != id)
+    );
+    let newID = Object.keys(state);
+
+    setState({ [newID]: newData[0] });
+    setRight("");
+    setBtnShow(false);
+  };
+
+  const handleSave = (content) => {
+    let newID = Object.keys(state);
+    let filterwdData = ITEMS.filter((el) => el.content === content);
+    filterwdData.map((el) => {
+      el.content = text || el.content;
+      el.image1 = image1 || el.image1;
+      el.image2 = image2 || el.image2;
+      el.image3 = image3 || el.image3;
+    });
+
+    setState({ ...state, [newID]: filterwdData });
+    setBtnShow(false);
+  };
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
@@ -325,7 +332,7 @@ const Home = (props) => {
         </Grid>
         <Grid item xs={6} height="100%">
           <Content>
-            <Nav/>          
+            <Nav />
             {Object.keys(state).map((list, i) => (
               <Droppable key={list} droppableId={list}>
                 {(provided, snapshot) => (
@@ -409,13 +416,16 @@ const Home = (props) => {
                                         <Button
                                           variant="contained"
                                           color="primary"
-                                          onClick={() => setRight(item)}
+                                          onClick={() => {
+                                            setRight(item);
+                                          }}
                                         >
                                           Edit
                                         </Button>
                                         <Button
                                           onClick={() =>
-                                            window.location.reload()
+                                            // window.location.reload()
+                                            handleRemove(item.id)
                                           }
                                           variant="contained"
                                           color="error"
@@ -512,7 +522,7 @@ const Home = (props) => {
             )}
             {right && (
               <Button
-                onClick={handleSave}
+                onClick={() => handleSave(right.content)}
                 style={{ marginTop: "1rem" }}
                 variant="contained"
                 color="success"
